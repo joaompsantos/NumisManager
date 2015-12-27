@@ -29,14 +29,13 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
+              <h3 class="masthead-brand">NumisManager</h3>
               <nav>
                 <ul class="nav masthead-nav">
                   <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Contact</a></li>
                   {% if user.is_authenticated %}
                      <li><a href="coins_list/">Collection</a></li>
-                      <p class="top-menu">Hello {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small></p>
+                      <li>Hello {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small></li>
                   {% else %}
                      <a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
                   {% endif %}
@@ -49,7 +48,11 @@
             <h1 class="cover-heading">Organize it!!!</h1>
             <p class="lead">Log your collection the easy way!</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
+              {% if user.is_authenticated %}
+                  <a href="coins_list/" class="btn btn-lg btn-default">Collection</a>
+              {% else %}
+                  <a href="{% url 'django.contrib.auth.views.login' %}" class="btn btn-lg btn-default">Sign In</a>
+              {% endif %}
             </p>
           </div>
 

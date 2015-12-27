@@ -10,7 +10,9 @@
                 <p>Country: {{ coin.country }}</p>
                 <p>Year: {{ coin.released_year }}</p>
                 <p>Value: {{ coin.value }}</p>
-                <a class="btn btn-default" href="{% url 'coin_edit' pk=coin.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-default" href="{% url 'coin_edit' pk=coin.pk %}">Edit</a>
+                <a class="btn btn-default" href="{% url 'coin_remove' pk=coin.pk %}">Delete</a>
+                <a class="btn btn-default" href="{% url 'coins_list' %}">Go Back!</a>
             </div>
         </div>
     </div>

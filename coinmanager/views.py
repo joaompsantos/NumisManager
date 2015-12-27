@@ -44,3 +44,9 @@ def coin_edit(request, pk):
     else:
         form = CoinForm(instance=coin)
     return render(request, 'coinmanager/coin_edit.html', {'form': form})
+
+@login_required()
+def coin_remove(request, pk):
+    coin = get_object_or_404(Coin, pk=pk)
+    coin.delete()
+    return redirect('coinmanager.views.coins_list')
