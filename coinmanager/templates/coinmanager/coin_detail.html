@@ -1,0 +1,17 @@
+{% extends 'coinmanager/base.html' %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                    <img src="{{ coin.link2pic }}" alt="coin">
+                </a>
+                <p>Country: {{ coin.country }}</p>
+                <p>Year: {{ coin.released_year }}</p>
+                <p>Value: {{ coin.value }}</p>
+                <a class="btn btn-default" href="{% url 'coin_edit' pk=coin.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

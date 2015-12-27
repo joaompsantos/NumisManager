@@ -1,0 +1,46 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+
+    <title>NumisManager</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+  <section id="container" >
+      <!--header start-->
+      <header class="header black-bg">
+            <!--logo start-->
+            <a class="logo"><b>NumisManager</b></a>
+
+            </div>
+            <div class="top-menu">
+            	<ul class="nav navbar-static-top pull-right top-menu">
+                    <li><a class="logout" href="/">Logout</a></li>
+            	</ul>
+            </div>
+        </header>
+      <!--header end-->
+      {% block content %}
+      {% endblock %}
+
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  </body>
+</html>

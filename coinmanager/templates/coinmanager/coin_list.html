@@ -1,0 +1,31 @@
+{% extends 'coinmanager/base.html' %}
+
+{% block content %}
+<div class="wrapper">
+<div class="jumbotron">
+  <h1>Fell free to admire your collection</h1>
+  <p><a href="{% url 'coin_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a></p>
+</div>
+<table class="table table-hover">
+    <caption>Your Coins:</caption>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Value</th>
+        <th>Year</th>
+        <th>Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for coin in coins %}
+      <tr>
+        <td>{{ coin.country }}</td>
+        <td>{{ coin.value }}</td>
+        <td>{{ coin.released_year }}</td>
+        <td><a href="{% url 'coin_detail' pk=coin.pk %}">Detail</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
